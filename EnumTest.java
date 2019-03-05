@@ -1,45 +1,15 @@
-public class EnumTest {
-  public enum Day {
-    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
-    THURSDAY, FRIDAY, SATURDAY
+import java.util.EnumSet;
+
+public class EnumTest{
+  public static void main(String[] args){
+    System.out.println("Todos los libros: ");
+
+    for (Book book : Book.values())
+      System.out.printf("%-10s%-45s%s%n", book, book.getTitle(), book.getCopyrightYear());
+
+    System.out.printf("%nMostrar el rango de constantes enum:%n");
+
+    for (Book book: EnumSet.range(Book.JHTP, Book.CPPHTP))
+      System.out.printf("%-10s%-45s%s%n", book, book.getTitle(), book.getCopyrightYear());
   }
-
-  Day day;
-
-  public EnumTest(Day day) {
-      this.day = day;
-  }
-
-  public void tellItLikeItIs() {
-      switch (day) {
-          case MONDAY:
-              System.out.println("Mondays are bad.");
-              break;
-
-          case FRIDAY:
-              System.out.println("Fridays are better.");
-              break;
-
-          case SATURDAY: case SUNDAY:
-              System.out.println("Weekends are best.");
-              break;
-
-          default:
-              System.out.println("Midweek days are so-so.");
-              break;
-      }
-  }
-
-  public static void main(String[] args) {
-      EnumTest firstDay = new EnumTest(Day.MONDAY);
-      firstDay.tellItLikeItIs();
-      EnumTest thirdDay = new EnumTest(Day.WEDNESDAY);
-      thirdDay.tellItLikeItIs();
-      EnumTest fifthDay = new EnumTest(Day.FRIDAY);
-      fifthDay.tellItLikeItIs();
-      EnumTest sixthDay = new EnumTest(Day.SATURDAY);
-      sixthDay.tellItLikeItIs();
-      EnumTest seventhDay = new EnumTest(Day.SUNDAY);
-      seventhDay.tellItLikeItIs();
-}
 }
