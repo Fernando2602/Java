@@ -3,12 +3,12 @@ public class EmployeeStaticTest{
     // String empleado;
     EmployeeStatic[] employeeList = new EmployeeStatic[10];
 
-    // for (EmployeeStatic employee : employeeList) {
-    //   employee = new EmployeeStatic("Empleado", "Numero" + (EmployeeStatic.getCount() + 1));
-    // }
+    for (EmployeeStatic employee : employeeList) {
+      employee = new EmployeeStatic("Empleado", "Numero" + (EmployeeStatic.getCount()));
+    }
 
-    EmployeeStatic empleado = new EmployeeStatic();
-    EmployeeStatic empleado1 = new EmployeeStatic("Fernando", "Contreras");
+    // EmployeeStatic empleado = new EmployeeStatic();
+    // EmployeeStatic empleado1 = new EmployeeStatic("Fernando", "Contreras");
 
 
   }

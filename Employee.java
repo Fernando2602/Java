@@ -1,15 +1,28 @@
-public class Employee{
-  private String firstName, lastName;
-  private Date birthDate, hideDate;
+public abstract class Employee{
+  private final String firstName, lastName, socialSecurityNumber;
 
-  public Employee(String firstName, String lastName, Date birthDate, Date hideDate){
+  public Employee(String firstName, String lastName, String socialSecurityNumber){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.birthDate = birthDate;
-    this.hideDate = hideDate;
+    this.socialSecurityNumber = socialSecurityNumber;
   }
 
-  public String toString(){
-    return String.format("%s, %s Contratado: %s Cumpleaños: %s", lastName, firstName, hideDate, birthDate);
+  public String getFirstName(){
+    return firstName;
   }
+
+  public String getLastName(){
+    return lastName;
+  }
+
+  public String getSocialSecurityName(){
+    return socialSecurityNumber;
+  }
+
+  @Override
+  public String toString(){
+    return String.format("%s %s%nsocial security number: %s", getFirstName(), getLastName(), getSocialSecurityName());
+  }
+
+  public abstract double earnings();
 }

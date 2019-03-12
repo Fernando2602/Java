@@ -1,35 +1,21 @@
-public class CommissionEmployee{
-  private final String firstName, lastName, socialSecurityNumber;
+public class CommissionEmployee extends Employee{
   private double grossSales, commissionRate;
 
   public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate){
-    if (grossSales < 0.0)
-      throw new IllegalArgumentException("Gross sales debe ser >= 0.0");
-    if (commissionRate < 0.0)
-      throw new IllegalArgumentException("Commission rate debe ser > 0.0");
+    super(firstName, lastName, socialSecurityNumber);
 
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.socialSecurityNumber = socialSecurityNumber;
+    if (commissionRate <= 0.0 || commissionRate >= 1.0)
+    throw new IllegalArgumentException("Commision Rate fuera de rango");
+    if (grossSales < 0)
+    throw new IllegalArgumentException("Gross Sales fuera de rango");
+
     this.grossSales = grossSales;
     this.commissionRate = commissionRate;
   }
 
-  public String getFirstName(){
-    return firstName;
-  }
-
-  public String getLastName(){
-    return lastName;
-  }
-
-  public String getSocialSecurityNumber(){
-    return socialSecurityNumber;
-  }
-
   public void setGrossSales(double grossSales){
-    if (grossSales < 0.0)
-      throw new IllegalArgumentException("Gross sales debe ser >= 0.0");
+    if (grossSales < 0)
+      throw new IllegalArgumentException("Gross Sales fuera de rango");
 
     this.grossSales = grossSales;
   }
@@ -40,21 +26,23 @@ public class CommissionEmployee{
 
   public void setCommissionRate(double commissionRate){
     if (commissionRate <= 0.0 || commissionRate >= 1.0)
-      throw new IllegalArgumentException("Commission rate debe ser > 0.0 y < 1.0");
+      throw new IllegalArgumentException("Commision Rate fuera de rango");
 
     this.commissionRate = commissionRate;
   }
 
-  public double getCommissionRate(){
+  public double getCommisionRate(){
     return commissionRate;
   }
 
+  @Override
   public double earnings(){
-    return commissionRate * grossSales;
+    return getCommisionRate() * getGrossSales();
   }
 
   @Override
   public String toString(){
-    return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f", "commission employee", firstName, lastName, "social security number", socialSecurityNumber, "gross sales", grossSales, "commission rate", commissionRate);
+    return String.format("%s: %s%n%s: $%,.2f; %s: %.2f", "commision employee", super.toString(), "gross sales", getGrossSales(), "commission rate", getCommisionRate());
   }
+
 }
