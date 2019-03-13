@@ -24,8 +24,9 @@ public class PayrollSystemTest{
     for (Employee currentEmployee : employees){
       System.out.println(currentEmployee);
 
-      if currentEmployee instanceof BasePlusCommissionEmployee(){
-        BasePlusCommissionEmployee = (BasePlusCommissionEmployee) currentEmployee;
+      if (currentEmployee instanceof BasePlusCommissionEmployee)
+      {
+        BasePlusCommissionEmployee  employee = (BasePlusCommissionEmployee) currentEmployee;
 
         employee.setBaseSalary(1.10 * employee.getBaseSalary());
 
@@ -35,7 +36,7 @@ public class PayrollSystemTest{
       System.out.printf("earned $%,.2f%n%n", currentEmployee.earnings());
     }
 
-    for (int j = 0; j < emploee.length; j++)
+    for (int j = 0; j < employees.length; j++)
       System.out.printf("Employee %d is a %s%n", j, employees[j].getClass().getName());
   }
 }
