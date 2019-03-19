@@ -24,8 +24,7 @@ public class PayrollSystemTest{
     for (Employee currentEmployee : employees){
       System.out.println(currentEmployee);
 
-      if (currentEmployee instanceof BasePlusCommissionEmployee)
-      {
+      if (currentEmployee instanceof BasePlusCommissionEmployee){
         BasePlusCommissionEmployee  employee = (BasePlusCommissionEmployee) currentEmployee;
 
         employee.setBaseSalary(1.10 * employee.getBaseSalary());
