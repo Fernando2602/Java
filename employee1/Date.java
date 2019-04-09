@@ -15,7 +15,6 @@ public class Date{
     this.month = month;
     this.day = day;
 
-    System.out.printf("Objeto constructor para fecha %s%n", this);
   }
 
   public String toString(){

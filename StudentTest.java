@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class StudentTest{
   public static void main(String[] arg){
-    int pass=0, fail=0, counter=0;
+    int pass = 0, fail = 0, counter = 0;
     Scanner input = new Scanner(System.in);
 
     while (counter < 3){

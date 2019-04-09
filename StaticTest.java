@@ -10,7 +10,7 @@ public class StaticTest{
       do{
         System.out.printf("Tienes que introducir un valor: ");
         num = input.nextInt();
-      }while(num==0) ;
+      }while(num == 0);
 
     }else{
       num = Integer.parseInt(args[0]);
